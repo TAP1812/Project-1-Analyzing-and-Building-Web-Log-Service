@@ -14,6 +14,9 @@ public class OverviewController {
         this.mainApp = mainApp;
     }
 	
+	
+	
+	
 	public void logout(ActionEvent event) {
 		Alert alert = new Alert(AlertType.CONFIRMATION);
 		alert.setTitle("Log out");

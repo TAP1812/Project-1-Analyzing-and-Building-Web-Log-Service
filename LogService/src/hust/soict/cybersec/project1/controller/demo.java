@@ -2,11 +2,9 @@ package hust.soict.cybersec.project1.controller;
 
 import java.io.File;
 import java.io.IOException;
+import java.util.ArrayList;
 import java.util.Scanner;
-
-import hust.soict.cybersec.project1.Main;
-import hust.soict.cybersec.project1.model.AccessLog;
-import hust.soict.cybersec.project1.stuff.LogTable;
+import model.*;
 import javafx.collections.FXCollections;
 import javafx.collections.ObservableList;
 import javafx.event.ActionEvent;
@@ -17,26 +15,27 @@ import javafx.scene.Parent;
 import javafx.scene.Scene;
 import javafx.scene.control.Alert;
 import javafx.scene.control.ButtonType;
-import javafx.scene.control.TableColumn;
-import javafx.scene.control.TableView;
-import javafx.scene.control.cell.PropertyValueFactory;
 import javafx.scene.control.Alert.AlertType;
+import javafx.scene.control.cell.PropertyValueFactory;
+import javafx.scene.control.Label;
+import javafx.scene.control.TableColumn;
+import javafx.scene.control.TableRow;
+import javafx.scene.control.TableView;
 import javafx.stage.FileChooser;
 import javafx.stage.Stage;
 
-public class ExplorerController {
+public c{
 	
-	
-	private Main mainApp;
+	private Stage stage;
+	private Scene scene;
+	private Parent root;
 	
 	@FXML
-	TableView<AccessLog> logtable = new TableView<AccessLog>();
+	Label nameLabel;
 	
-	
-	public void setMainApp(Main mainApp) {
-        this.mainApp = mainApp;
-    }
-	
+	@FXML
+	TableView<AccessLog> logtable = new TableView<>();
+
 	@SuppressWarnings("unchecked")
 	public void createTable(){
 		// Declare each column
@@ -91,32 +90,46 @@ public class ExplorerController {
 		refererColumn.setMaxWidth(300);
 
 		// Define onAction for each row
-		
+		logtable.setRowFactory(tv -> {
+			TableRow<AccessLog> row = new TableRow<>();
+			row.setOnMouseClicked(event -> {
+				if (event.getClickCount() == 2 && ! row.isEmpty()) { // Check for single left click on a populated row
+					AccessLog log = row.getItem();
+					// Handle the row click event with the selected product
+					System.out.println("Row clicked! Product name: " + log.toString());
+				}
+			});
+			return row;
+		});
 		// Add to table view
 		logtable.getColumns().addAll(typeColumn, IpColumn, remoteIdentColumn, remoteUserColumn, timeColumn, requestColumn, statusColumn, bytesSentColumn, refererColumn, userColumn, logColumn);
 	}
-	public void openSetting(ActionEvent event ) throws IOException {
-		FXMLLoader loader = new FXMLLoader(getClass().getResource("/fxml/ExplorerSetting.fxml"));
-		Parent root = loader.load();
-		
-		Stage setting  = new Stage();
-		Scene settingscene = new Scene(root);
-		setting.setScene(settingscene);
-		setting.show();
-		setting.setResizable(false);
-		
+
+	public void UpdatingLogTable(ArrayList<String> choices){
+		for(int i=0;i<10;i++){
+			if (!choices.contains(logtable.getColumns().get(i).getText())){
+				logtable.getColumns().get(i).setVisible(false);
+			}
+		}
 	}
 	
-	public void selectFileLog(ActionEvent event) {
-		Stage stage = (Stage)((Node) event.getSource()).getScene().getWindow();
+	public void opensetting(ActionEvent event ) throws IOException {
+		root = FXMLLoader.load(getClass().getResource("Setting.fxml"));
+		stage = (Stage)((Node) event.getSource()).getScene().getWindow();
+		scene = new Scene(root);
+		stage.setScene(scene);
+		stage.show();
+	}
+
+	public void selectfilelog(ActionEvent event) {
+		stage = (Stage)((Node) event.getSource()).getScene().getWindow();
 		FileChooser filechooser = new FileChooser();
 		filechooser.setTitle("Select the log source");
 		
-		File resourceDir = new File("src/logsample");
+		File resourceDir = new File("src");
 		filechooser.setInitialDirectory(resourceDir);
 		
-		
-		java.io.File selectedFile = filechooser.showOpenDialog(stage);
+		File selectedFile = filechooser.showOpenDialog(stage);
 		
 		if (selectedFile != null) {
 			try{
@@ -124,70 +137,68 @@ public class ExplorerController {
 				ObservableList<AccessLog> logs = FXCollections.observableArrayList();
 				while (scanner.hasNextLine()) {
 					logs.add(new AccessLog(scanner.nextLine()));
-					
 				}
-				
 				logtable.setItems(logs);
-				
 				scanner.close();
-				System.out.println("show log ");
 			}
 			catch (Exception e){
 				e.printStackTrace();
 			}
-            
+
         } else {
             System.out.println("Không có file nào được chọn.");
-        }
+        }	
+	}
+
+	public void swichtostream(ActionEvent event) throws IOException {
+		root = FXMLLoader.load(getClass().getResource("Stream.fxml"));
+		stage = (Stage)((Node) event.getSource()).getScene().getWindow();
+		scene = new Scene(root);
+		stage.setScene(scene);
+		stage.show();
 		
-	
-		
-	
+	}
+	public void swichtodashboard(ActionEvent event) throws IOException {
+		root = FXMLLoader.load(getClass().getResource("Dashboard.fxml"));
+		stage = (Stage)((Node) event.getSource()).getScene().getWindow();
+		scene = new Scene(root);
+		stage.setScene(scene);
+		stage.show();
 	}
 	
+	public void swichtooverview(ActionEvent event) throws IOException {
+		FXMLLoader loader = new FXMLLoader(getClass().getResource("WelcomePage.fxml"));
+		root = loader.load();
+		
+		
+		stage = (Stage)((Node) event.getSource()).getScene().getWindow();
+		scene = new Scene(root);
+		stage.setScene(scene);
+		stage.show();
+	}
 	
-
+	public void switchtofeature(ActionEvent event) throws IOException {
+		root = FXMLLoader.load(getClass().getResource("Feature.fxml"));
+		stage = (Stage)((Node) event.getSource()).getScene().getWindow();
+		scene = new Scene(root);
+		stage.setScene(scene);
+		stage.show();
+	}
 	
-	
-	
-	
-	
-	
-	
-	
-	
-	
-	
-	
-	
-	
-	
-	
-	
-	
-	public void logout(ActionEvent event) {
+	public void logout(ActionEvent event) throws IOException {
 		Alert alert = new Alert(AlertType.CONFIRMATION);
 		alert.setTitle("Log out");
 		alert.setHeaderText("You're about log out");
 		alert.setContentText("Are you sure?");
 		if (alert.showAndWait().get() == ButtonType.OK) {
-			mainApp.logout();
+			root = FXMLLoader.load(getClass().getResource("LoginPage.fxml"));
+			stage = (Stage)((Node) event.getSource()).getScene().getWindow();
+			scene = new Scene(root);
+			stage.setScene(scene);
+			stage.show();
 		}
 	}
-	
-	public void switchToWelcome(ActionEvent event) {
-		mainApp.switchToOverview();
-	}
-	public void switchToOverview(ActionEvent event) {
-		mainApp.switchToOverview();
-	}
-	public void switchToDashboard(ActionEvent event) {
-		mainApp.switchToDashboard();
-	}
-	public void switchToStream(ActionEvent event) {
-		mainApp.switchToStream();
-	}
-	public void switchToExplorer(ActionEvent event) {
-		mainApp.switchToExplorer();
+	public void displayName(String username) {
+		nameLabel.setText("Welcome " + username);
 	}
 }
