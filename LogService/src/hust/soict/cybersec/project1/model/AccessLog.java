@@ -1,4 +1,4 @@
-package model;
+package hust.soict.cybersec.project1.model;
 
 import java.util.regex.Matcher;
 import java.util.regex.Pattern;
@@ -30,6 +30,9 @@ public class AccessLog {
         setReferer();
     }
 
+    
+    //::1 - - [20/Feb/2024:16:41:34 +0700] "GET / HTTP/1.1" 302 - "-"
+    // "Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/121.0.0.0 Safari/537.36"
     @Override
     public String toString() {
         // TODO Auto-generated method stub

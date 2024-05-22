@@ -4,7 +4,6 @@
 <?import javafx.scene.control.Button?>
 <?import javafx.scene.control.DatePicker?>
 <?import javafx.scene.control.Label?>
-<?import javafx.scene.control.TableColumn?>
 <?import javafx.scene.control.TableView?>
 <?import javafx.scene.control.TextField?>
 <?import javafx.scene.layout.AnchorPane?>
@@ -33,7 +32,7 @@
             </AnchorPane>
          </top>
          <left>
-            <AnchorPane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="600.0" prefWidth="150.0" style="-fx-background-color: #153448;" BorderPane.alignment="CENTER">
+            <AnchorPane maxHeight="1.7976931348623157E308" maxWidth="1.7976931348623157E308" minHeight="-Infinity" minWidth="-Infinity" prefHeight="600.0" prefWidth="150.0" style="-fx-background-color: #153448;" BorderPane.alignment="CENTER">
                <children>
                   <Label alignment="CENTER" contentDisplay="CENTER" layoutX="55.0" layoutY="24.0" prefHeight="46.0" prefWidth="166.0" text="Menu" textFill="#dfd0b8" AnchorPane.leftAnchor="0.0" AnchorPane.rightAnchor="0.0" AnchorPane.topAnchor="0.0">
                      <font>
@@ -76,19 +75,7 @@
          <center>
             <AnchorPane prefHeight="200.0" prefWidth="200.0" BorderPane.alignment="CENTER">
                <children>
-                  <TableView layoutX="15.0" layoutY="132.0" prefHeight="414.0" prefWidth="715.0" AnchorPane.bottomAnchor="15.0" AnchorPane.leftAnchor="15.0" AnchorPane.rightAnchor="15.0" AnchorPane.topAnchor="132.0">
-                    <columns>
-                      <TableColumn prefWidth="28.800046145915985" />
-                      <TableColumn prefWidth="121.5999870300293" text="IP address" />
-                        <TableColumn prefWidth="75.0" text="Time" />
-                        <TableColumn prefWidth="75.0" text="Method" />
-                        <TableColumn prefWidth="75.0" text="Status code" />
-                        <TableColumn prefWidth="75.0" text="Size (byte)" />
-                        <TableColumn prefWidth="75.0" text="Referer" />
-                        <TableColumn prefWidth="75.0" text="User-Agent" />
-                        <TableColumn prefWidth="111.99998779296868" text="Time reponse" />
-                    </columns>
-                  </TableView>
+                  <TableView fx:id="logtable" layoutX="15.0" layoutY="132.0" prefHeight="414.0" prefWidth="715.0" AnchorPane.bottomAnchor="15.0" AnchorPane.leftAnchor="15.0" AnchorPane.rightAnchor="15.0" AnchorPane.topAnchor="132.0" />
                   <Label layoutX="25.0" layoutY="14.0" text="Explorer" AnchorPane.leftAnchor="30.0" AnchorPane.topAnchor="15.0">
                      <font>
                         <Font name="System Bold" size="18.0" />
@@ -111,13 +98,13 @@
                         <Button maxHeight="-Infinity" maxWidth="1.7976931348623157E308" mnemonicParsing="false" text="Refresh" />
                      </children>
                   </HBox>
-                  <Button layoutX="657.0" layoutY="15.0" mnemonicParsing="false" onAction="#opensetting" prefHeight="26.0" prefWidth="65.0" text="Setting" AnchorPane.rightAnchor="30.0" AnchorPane.topAnchor="15.0" />
+                  <Button layoutX="657.0" layoutY="15.0" mnemonicParsing="false" onAction="#openSetting" prefHeight="26.0" prefWidth="65.0" text="Setting" AnchorPane.rightAnchor="30.0" AnchorPane.topAnchor="15.0" />
                   <Label layoutX="31.0" layoutY="100.0" prefHeight="18.0" prefWidth="102.0" text="File name: ........" AnchorPane.leftAnchor="30.0" AnchorPane.topAnchor="100.0">
                      <font>
                         <Font size="14.0" />
                      </font>
                   </Label>
-                  <Button layoutX="624.0" layoutY="87.0" mnemonicParsing="false" onAction="#selectfilelog" text="Sellect file log" AnchorPane.rightAnchor="30.0" AnchorPane.topAnchor="95.0" />
+                  <Button layoutX="624.0" layoutY="87.0" mnemonicParsing="false" onAction="#selectFileLog" text="Sellect file log" AnchorPane.rightAnchor="30.0" AnchorPane.topAnchor="95.0" />
                </children></AnchorPane>
          </center>
       </BorderPane>

@@ -1,4 +1,4 @@
-package application;
+package hust.soict.cybersec.project1.controller;
 
 
 import java.io.IOException;
@@ -16,27 +16,19 @@ import javafx.scene.Scene;
 
 public class SettingController {
 
-    @FXML
-    Button cancelbutton;
+    
 
-    @FXML
-    GridPane choices;
-
-    @FXML
-    Button applybutton;
-
-
-    public void ApplyingSetting(ActionEvent event) throws IOException{
-        FXMLLoader loader = new FXMLLoader(getClass().getResource("Overview.fxml"));
-        Parent root = loader.load();
-        OverviewController overviewController = loader.getController();
-        overviewController.createTable();
-        overviewController.UpdatingLogTable(selectedColumns());
-        Stage stage = (Stage)((Node)event.getSource()).getScene().getWindow();
-        Scene scene = new Scene(root);
-        stage.setScene(scene);
-        stage.show();
-    }
+//    public void ApplyingSetting(ActionEvent event) throws IOException{
+//        FXMLLoader loader = new FXMLLoader(getClass().getResource("Overview.fxml"));
+//        Parent root = loader.load();
+//        OverviewController overviewController = loader.getController();
+//        overviewController.createTable();
+//        overviewController.UpdatingLogTable(selectedColumns());
+//        Stage stage = (Stage)((Node)event.getSource()).getScene().getWindow();
+//        Scene scene = new Scene(root);
+//        stage.setScene(scene);
+//        stage.show();
+//    }
 
     public ArrayList<String> selectedColumns(){
         ArrayList<String> selectedColumns = new ArrayList<>();
