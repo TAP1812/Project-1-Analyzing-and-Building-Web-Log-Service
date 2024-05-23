@@ -1,5 +1,7 @@
 package hust.soict.cybersec.project1.model;
 
+import java.time.LocalDateTime;
+import java.time.format.DateTimeFormatter;
 import java.util.regex.Matcher;
 import java.util.regex.Pattern;
 
@@ -182,6 +184,11 @@ public class AccessLog {
     
     public String getLogEntry(){
         return this.logEntry;
+    }
+    public int getHour(){
+        DateTimeFormatter formatter = DateTimeFormatter.ofPattern("dd/MMM/yyyy:HH:mm:ss Z");
+        LocalDateTime dateTime = LocalDateTime.parse(getTimestamp(), formatter);
+        return dateTime.getHour();
     }
     
 }

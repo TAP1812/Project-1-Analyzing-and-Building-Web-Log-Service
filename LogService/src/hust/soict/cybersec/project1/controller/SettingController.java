@@ -29,21 +29,21 @@ public class SettingController {
 //        stage.setScene(scene);
 //        stage.show();
 //    }
-
-    public ArrayList<String> selectedColumns(){
-        ArrayList<String> selectedColumns = new ArrayList<>();
-        for(Node node: choices.getChildren()){
-            if (node instanceof CheckBox){
-                if (((CheckBox) node).isSelected()){
-                    selectedColumns.add(((CheckBox) node).getText());
-                }
-            }
-        }
-        return selectedColumns;
-    }
-
-    public void ExistingSetting(ActionEvent event){
-        Stage stage = (Stage) cancelbutton.getScene().getWindow();
-        stage.close();
-    }
+//
+//    public ArrayList<String> selectedColumns(){
+//        ArrayList<String> selectedColumns = new ArrayList<>();
+//        for(Node node: choices.getChildren()){
+//            if (node instanceof CheckBox){
+//                if (((CheckBox) node).isSelected()){
+//                    selectedColumns.add(((CheckBox) node).getText());
+//                }
+//            }
+//        }
+//        return selectedColumns;
+//    }
+//
+//    public void ExistingSetting(ActionEvent event){
+//        Stage stage = (Stage) cancelbutton.getScene().getWindow();
+//        stage.close();
+//    }
 }
