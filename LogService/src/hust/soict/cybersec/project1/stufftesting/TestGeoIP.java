@@ -1,10 +1,18 @@
 package hust.soict.cybersec.project1.stufftesting;
 
+import java.io.File;
+import java.io.IOException;
+import java.net.InetAddress;
+
+import com.maxmind.geoip2.DatabaseReader;
+import com.maxmind.geoip2.exception.GeoIp2Exception;
+import com.maxmind.geoip2.model.CountryResponse;
+
 public class TestGeoIP {
 	public static void main(String[] args) {
 		try {
             // Đường dẫn tới file GeoLite2-Country.mmdb
-            File database = new File("path/to/GeoLite2-Country.mmdb");
+            File database = new File("C:\\Users\\Lenovo\\Downloads\\GeoLite2-Country.mmdb");
 
             // Tạo DatabaseReader
             DatabaseReader reader = new DatabaseReader.Builder(database).build();

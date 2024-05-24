@@ -53,7 +53,7 @@ public class Test_IP_TableView extends Application{
     }
 
     public void addData(){
-        String filePath = "E:\\PROJECT1\\WebLogService\\src\\Resources\\access.log";
+        String filePath = "D:\\access.log";
         File database = new File("E:\\PROJECT1\\Database\\GeoLite2-Country.mmdb");
         TreeMap<String, Integer> tMap = new TreeMap<String, Integer>();
         ObservableList<IpAddress> ips = FXCollections.observableArrayList();

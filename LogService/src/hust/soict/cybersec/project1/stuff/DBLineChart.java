@@ -52,6 +52,8 @@ public class DBLineChart extends LineChart<String,Number> {
 	
 	public HashMap<Integer, Integer> loadAccessLog(){
         HashMap<Integer, Integer> hm = new HashMap<Integer, Integer>();
+        
+        //"D:\XAMPP\apache\logs\access.log"
         String filePath= "D:\\access.log";
 
         try {
