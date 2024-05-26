@@ -1,18 +1,34 @@
 package hust.soict.cybersec.project1.controller;
 
+import java.net.URL;
+import java.util.ResourceBundle;
+
 import hust.soict.cybersec.project1.Main;
+import hust.soict.cybersec.project1.model.AccessLog;
+import hust.soict.cybersec.project1.util.LogTableUtil;
 import javafx.event.ActionEvent;
+import javafx.fxml.FXML;
+import javafx.fxml.Initializable;
 import javafx.scene.control.Alert;
 import javafx.scene.control.ButtonType;
+import javafx.scene.control.TableView;
 import javafx.scene.control.Alert.AlertType;
 
-public class StreamController {
-	private Main mainApp;
+public class StreamController implements Initializable  {
 	
+	private Main mainApp;
+	private String filepath;
+	
+	@FXML 
+	TableView<AccessLog> logtable;
 	
 	public void setMainApp(Main mainApp) {
 		this.mainApp = mainApp;
     }
+	
+	
+	
+	
 	
 	public void logout(ActionEvent event) {
 		Alert alert = new Alert(AlertType.CONFIRMATION);
@@ -37,5 +53,14 @@ public class StreamController {
 	}
 	public void switchToExplorer(ActionEvent event) {
 		mainApp.switchToExplorer();
+	}
+
+	
+	@Override
+	public void initialize(URL arg0, ResourceBundle arg1) {
+		
+		LogTableUtil.createLogTable(logtable);
+		LogTableUtil.loadAccessLogToTable(logtable,mainApp.getAccesslog());
+		
 	}
 }

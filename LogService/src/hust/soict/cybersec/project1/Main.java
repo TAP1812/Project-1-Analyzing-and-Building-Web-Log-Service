@@ -17,6 +17,10 @@ import javafx.scene.layout.BorderPane;
 
 public class Main extends Application {
 	
+	// some important log file location
+	private static final String accesslog = "D:\\XAMPP\\apache\\logs\\access.log";
+	private static final String errorlog  = "";
+	private static final String modseclog = "";
 	
 	private Stage primaryStage;
 	private Scene welcome,stream,explorer,overview,dashboard,login,register;
@@ -105,6 +109,18 @@ public class Main extends Application {
 		primaryStage.setScene(explorer);
 	}
 	
+	
+	public static String getAccesslog() {
+		return accesslog;
+	}
+
+	public static String getErrorlog() {
+		return errorlog;
+	}
+
+	public static String getModseclog() {
+		return modseclog;
+	}
 
 	public static void main(String[] args) {
 		launch(args);
