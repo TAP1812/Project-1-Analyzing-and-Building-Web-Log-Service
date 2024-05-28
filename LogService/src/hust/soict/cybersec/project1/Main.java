@@ -8,6 +8,8 @@ import hust.soict.cybersec.project1.controller.StreamController;
 import hust.soict.cybersec.project1.controller.WelcomeController;
 import javafx.application.Application;
 import javafx.fxml.FXMLLoader;
+import javafx.geometry.Rectangle2D;
+import javafx.stage.Screen;
 import javafx.stage.Stage;
 import javafx.scene.Parent;
 import javafx.scene.Scene;
@@ -24,6 +26,8 @@ public class Main extends Application {
 	
 	private Stage primaryStage;
 	private Scene welcome,stream,explorer,overview,dashboard,login,register;
+	
+	
 	
 	@Override
 	public void start(Stage primaryStage) {
@@ -85,9 +89,11 @@ public class Main extends Application {
 		} catch(Exception e) {
 			e.printStackTrace();
 		}
+		
 	}
 	
 	public void register() {
+		
 		primaryStage.setScene(register);
 	}
 	public void logout() {
@@ -95,18 +101,36 @@ public class Main extends Application {
 	}
 	public void switchToWelcome() {
 		primaryStage.setScene(welcome);
+//		primaryStage.setMaximized(true);
 	}
 	public void switchToDashboard() {
+		double stageWidth = primaryStage.getWidth();
+        double stageHeight = primaryStage.getHeight();
 		primaryStage.setScene(dashboard);
+		primaryStage.setWidth(stageWidth);
+        primaryStage.setHeight(stageHeight);
+		
 	}
 	public void switchToOverview() {
+		double stageWidth = primaryStage.getWidth();
+        double stageHeight = primaryStage.getHeight();
 		primaryStage.setScene(overview);
+		primaryStage.setWidth(stageWidth);
+        primaryStage.setHeight(stageHeight);
 	}
 	public void switchToStream() {
+		double stageWidth = primaryStage.getWidth();
+        double stageHeight = primaryStage.getHeight();
 		primaryStage.setScene(stream);
+		primaryStage.setWidth(stageWidth);
+        primaryStage.setHeight(stageHeight);
 	}
 	public void switchToExplorer() {
+		double stageWidth = primaryStage.getWidth();
+        double stageHeight = primaryStage.getHeight();
 		primaryStage.setScene(explorer);
+		primaryStage.setWidth(stageWidth);
+        primaryStage.setHeight(stageHeight);
 	}
 	
 	
