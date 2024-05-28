@@ -22,6 +22,7 @@ public class StreamController implements Initializable  {
 	@FXML 
 	TableView<AccessLog> logtable;
 	
+	
 	public void setMainApp(Main mainApp) {
 		this.mainApp = mainApp;
     }
@@ -59,7 +60,7 @@ public class StreamController implements Initializable  {
 	@Override
 	public void initialize(URL arg0, ResourceBundle arg1) {
 		
-		LogTableUtil.createLogTable(logtable);
+		LogTableUtil.loadLogTable(logtable);
 		LogTableUtil.loadAccessLogToTable(logtable,mainApp.getAccesslog());
 		
 	}

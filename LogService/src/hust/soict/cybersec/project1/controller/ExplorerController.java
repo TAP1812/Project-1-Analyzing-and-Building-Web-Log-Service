@@ -8,7 +8,7 @@ import java.util.Scanner;
 
 import hust.soict.cybersec.project1.Main;
 import hust.soict.cybersec.project1.model.AccessLog;
-import hust.soict.cybersec.project1.stuff.LogTable;
+import hust.soict.cybersec.project1.util.LogTableUtil;
 import javafx.collections.FXCollections;
 import javafx.collections.ObservableList;
 import javafx.event.ActionEvent;
@@ -20,9 +20,7 @@ import javafx.scene.Parent;
 import javafx.scene.Scene;
 import javafx.scene.control.Alert;
 import javafx.scene.control.ButtonType;
-import javafx.scene.control.TableColumn;
 import javafx.scene.control.TableView;
-import javafx.scene.control.cell.PropertyValueFactory;
 import javafx.scene.layout.AnchorPane;
 import javafx.scene.control.Alert.AlertType;
 import javafx.stage.FileChooser;
@@ -30,13 +28,16 @@ import javafx.stage.Stage;
 
 public class ExplorerController implements Initializable {
 	
-	private static LogTable logtable = new LogTable();
+	
 	
 	private Main mainApp;
 	
 	@FXML
 	AnchorPane logtableholder;
 
+	@FXML
+	TableView logtable;
+	
 	public void setMainApp(Main mainApp) {
         this.mainApp = mainApp;
     }
@@ -44,7 +45,6 @@ public class ExplorerController implements Initializable {
 	public void openSetting(ActionEvent event ) throws IOException {
 		FXMLLoader loader = new FXMLLoader(getClass().getResource("/fxml/ExplorerSetting.fxml"));
 		Parent root = loader.load();
-		
 		Stage setting  = new Stage();
 		Scene settingscene = new Scene(root);
 		setting.setScene(settingscene);
@@ -57,7 +57,6 @@ public class ExplorerController implements Initializable {
 		Stage stage = (Stage)((Node) event.getSource()).getScene().getWindow();
 		FileChooser filechooser = new FileChooser();
 		filechooser.setTitle("Select the log source");
-		
 		File resourceDir = new File("src/logsample");
 		filechooser.setInitialDirectory(resourceDir);
 
@@ -86,14 +85,8 @@ public class ExplorerController implements Initializable {
 	}
 	
 	
-	public void showLogTable() {
-		logtableholder.getChildren().add(logtable);
-	    AnchorPane.setTopAnchor(logtable, 10.0);
-	    AnchorPane.setLeftAnchor(logtable, 10.0);
-	    AnchorPane.setRightAnchor(logtable, 10.0);
-	    AnchorPane.setBottomAnchor(logtable, 10.0);
-	    
-	}
+	
+	
 
 	
 	public void logout(ActionEvent event) {
@@ -106,10 +99,8 @@ public class ExplorerController implements Initializable {
 		}
 	}
 	
+	
 	public void switchToWelcome(ActionEvent event) {
-		mainApp.switchToOverview();
-	}
-	public void switchToOverview(ActionEvent event) {
 		mainApp.switchToOverview();
 	}
 	public void switchToDashboard(ActionEvent event) {
@@ -125,7 +116,8 @@ public class ExplorerController implements Initializable {
 	@Override
 	public void initialize(URL arg0, ResourceBundle arg1) {
 		// TODO Auto-generated method stub
-		showLogTable();
+		LogTableUtil.loadLogTable(logtable);
+		
 		
 	}
 }

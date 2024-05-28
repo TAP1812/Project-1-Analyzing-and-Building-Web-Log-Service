@@ -17,6 +17,7 @@ public class Test_Log_LineChart extends Application {
 
     public HashMap<Integer, Integer> loadAccessLog(){
         HashMap<Integer, Integer> hm = new HashMap<Integer, Integer>();
+        
         String filePath= "E:\\PROJECT1\\WebLogService\\src\\Resources\\access.log";
 
         try {
@@ -39,6 +40,7 @@ public class Test_Log_LineChart extends Application {
         return hm;
     }
     @Override
+
     public void start(Stage stage) throws Exception {
         // TODO Auto-generated method stub
         stage.setTitle("Logs Chart");

@@ -12,7 +12,7 @@ import javafx.scene.control.TableView;
 import javafx.scene.control.cell.PropertyValueFactory;
 
 public class LogTableUtil {
-	public static void createLogTable(TableView<AccessLog> logtable) {
+	public static void loadLogTable(TableView<AccessLog> logtable) {
 		
 		TableColumn<AccessLog, String> typeColumn = new TableColumn<>("Type");
 		TableColumn<AccessLog, String> IpColumn = new TableColumn<>("IP");
