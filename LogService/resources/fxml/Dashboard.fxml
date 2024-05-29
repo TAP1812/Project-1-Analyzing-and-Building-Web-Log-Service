@@ -43,22 +43,17 @@
                   </Label>
                   <VBox alignment="TOP_CENTER" layoutX="27.0" layoutY="46.0" prefHeight="200.0" prefWidth="100.0" spacing="20.0" AnchorPane.leftAnchor="0.0" AnchorPane.rightAnchor="0.0">
                      <children>
-                        <Button mnemonicParsing="false" onAction="#switchToOverview" prefHeight="35.0" prefWidth="110.0" style="-fx-background-color: #153448;" text="Overview" textFill="#dfd0b8">
-                           <font>
-                              <Font name="System Bold" size="14.0" />
-                           </font>
-                        </Button>
                         <Button mnemonicParsing="false" onAction="#switchToWelcome" prefHeight="35.0" prefWidth="110.0" style="-fx-background-color: #948979;" text="Dashboard" textFill="#153448">
                            <font>
                               <Font name="System Bold" size="14.0" />
                            </font>
                         </Button>
-                        <Button mnemonicParsing="false" onAction="#switchToStream" prefHeight="35.0" prefWidth="110.0" style="-fx-background-color: #153448;" text="Stream" textFill="#dfd0b8">
+                        <Button mnemonicParsing="false" onAction="#switchToExplorer" prefHeight="35.0" prefWidth="110.0" style="-fx-background-color: #153448;" text="Detector" textFill="#dfd0b8">
                            <font>
                               <Font name="System Bold" size="14.0" />
                            </font>
                         </Button>
-                        <Button mnemonicParsing="false" onAction="#switchToExplorer" prefHeight="35.0" prefWidth="110.0" style="-fx-background-color: #153448;" text="Explorer" textFill="#dfd0b8">
+                        <Button mnemonicParsing="false" onAction="#switchToStream" prefHeight="35.0" prefWidth="110.0" style="-fx-background-color: #153448;" text="Stream" textFill="#dfd0b8">
                            <font>
                               <Font name="System Bold" size="14.0" />
                            </font>
@@ -76,19 +71,21 @@
                <children>
                   <AnchorPane layoutX="14.0" layoutY="71.2" prefHeight="486.0" prefWidth="740.0" AnchorPane.bottomAnchor="5.0" AnchorPane.leftAnchor="5.0" AnchorPane.rightAnchor="5.0" AnchorPane.topAnchor="71.0">
                      <children>
-                        <GridPane hgap="5.0" vgap="5.0" AnchorPane.bottomAnchor="0.0" AnchorPane.leftAnchor="0.0" AnchorPane.rightAnchor="0.0" AnchorPane.topAnchor="0.0">
+                        <GridPane hgap="5.0" layoutX="-15.0" layoutY="-6.0" vgap="5.0" AnchorPane.bottomAnchor="5.0" AnchorPane.leftAnchor="5.0" AnchorPane.rightAnchor="5.0" AnchorPane.topAnchor="0.0">
                           <columnConstraints>
-                            <ColumnConstraints halignment="CENTER" hgrow="ALWAYS" maxWidth="800.0" minWidth="10.0" prefWidth="433.6000244140625" />
-                            <ColumnConstraints hgrow="SOMETIMES" maxWidth="400.0" minWidth="10.0" prefWidth="175.0" />
-                              <ColumnConstraints hgrow="SOMETIMES" maxWidth="400.0" minWidth="10.0" prefWidth="175.0" />
+                            <ColumnConstraints halignment="CENTER" hgrow="ALWAYS" maxWidth="800.0" minWidth="10.0" prefWidth="258.6" />
+                              <ColumnConstraints halignment="CENTER" hgrow="ALWAYS" maxWidth="800.0" minWidth="10.0" percentWidth="20.0" prefWidth="37.39997558593751" />
+                            <ColumnConstraints hgrow="SOMETIMES" maxWidth="400.0" minWidth="0.0" percentWidth="10.0" prefWidth="141.79998779296875" />
+                              <ColumnConstraints hgrow="SOMETIMES" maxWidth="400.0" minWidth="10.0" percentWidth="15.0" prefWidth="126.60001220703123" />
+                              <ColumnConstraints hgrow="SOMETIMES" maxWidth="400.0" minWidth="10.0" percentWidth="15.0" prefWidth="172.20006713867178" />
                           </columnConstraints>
                           <rowConstraints>
-                            <RowConstraints maxHeight="100.0" minHeight="50.0" prefHeight="50.0" vgrow="ALWAYS" />
-                              <RowConstraints maxHeight="200.0" minHeight="10.0" prefHeight="150.0" vgrow="ALWAYS" />
-                            <RowConstraints maxHeight="600.0" minHeight="10.0" prefHeight="255.99997863769528" vgrow="ALWAYS" />
+                            <RowConstraints maxHeight="256.3999908447266" minHeight="50.0" percentHeight="60.0" prefHeight="248.20000915527345" vgrow="ALWAYS" />
+                            <RowConstraints maxHeight="600.0" minHeight="10.0" percentHeight="10.0" prefHeight="54.59999084472656" vgrow="ALWAYS" />
+                              <RowConstraints maxHeight="600.0" minHeight="10.0" prefHeight="162.2000274658203" vgrow="ALWAYS" />
                           </rowConstraints>
                            <children>
-                              <LineChart fx:id="linechart" maxHeight="600.0" maxWidth="800.0" prefHeight="200.0" prefWidth="419.0" GridPane.rowSpan="2">
+                              <LineChart fx:id="linechart" maxHeight="600.0" maxWidth="800.0" prefHeight="281.0" prefWidth="284.0" GridPane.columnSpan="2">
                                 <xAxis>
                                   <CategoryAxis side="BOTTOM" />
                                 </xAxis>
@@ -99,19 +96,20 @@
                                     <Insets />
                                  </GridPane.margin>
                               </LineChart>
-                              <TableView fx:id="iptable" GridPane.rowIndex="2" />
-                              <PieChart fx:id="piechart" title="piechart" GridPane.columnIndex="1" GridPane.columnSpan="2" GridPane.rowIndex="2" />
-                              <TableView fx:id="statustable" prefHeight="150.0" prefWidth="200.0" GridPane.columnIndex="1" GridPane.columnSpan="2" GridPane.rowIndex="1" />
-                              <AnchorPane prefHeight="200.0" prefWidth="200.0" style="-fx-border-color: #000000;" GridPane.columnIndex="1">
+                              <TableView fx:id="iptable" GridPane.rowIndex="1" GridPane.rowSpan="2" />
+                              <PieChart fx:id="piechart" prefHeight="278.0" prefWidth="426.0" title="piechart" GridPane.columnIndex="2" GridPane.columnSpan="3" />
+                              <TableView fx:id="statustable" prefHeight="149.0" prefWidth="309.0" GridPane.columnIndex="3" GridPane.columnSpan="2" GridPane.rowIndex="2" />
+                              <AnchorPane prefHeight="200.0" prefWidth="200.0" style="-fx-border-color: #000000;" GridPane.columnIndex="3" GridPane.rowIndex="1">
                                  <children>
                                     <Label layoutX="10.0" layoutY="4.0" text="#visit" />
                                  </children>
                               </AnchorPane>
-                              <AnchorPane prefHeight="200.0" prefWidth="200.0" style="-fx-border-color: #000000;" GridPane.columnIndex="2">
+                              <AnchorPane prefHeight="200.0" prefWidth="200.0" style="-fx-border-color: #000000;" GridPane.columnIndex="4" GridPane.rowIndex="1">
                                  <children>
                                     <Label layoutX="2.0" layoutY="6.0" text="#Unique visitor" />
                                  </children>
                               </AnchorPane>
+                              <TableView fx:id="ruletable" prefHeight="200.0" prefWidth="200.0" GridPane.columnIndex="1" GridPane.columnSpan="2" GridPane.rowIndex="1" GridPane.rowSpan="2" />
                            </children>
                            <padding>
                               <Insets bottom="5.0" left="5.0" right="5.0" top="5.0" />
