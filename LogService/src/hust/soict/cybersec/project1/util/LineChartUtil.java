@@ -40,9 +40,6 @@ public class LineChartUtil {
 	}
 	
 
-
-
-	
 	private static HashMap<Integer, Integer> loadAccessLog(String filepath){
         HashMap<Integer, Integer> hm = new HashMap<Integer, Integer>();
         

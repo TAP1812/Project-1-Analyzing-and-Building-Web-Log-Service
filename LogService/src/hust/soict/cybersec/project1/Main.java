@@ -20,9 +20,10 @@ import javafx.scene.layout.BorderPane;
 public class Main extends Application {
 	
 	// some important log file location
-	private static final String accesslog = "D:\\XAMPP\\apache\\logs\\access.log";
+	private static final String accesslog = "D:\\access.log";
 	private static final String errorlog  = "";
 	private static final String modseclog = "";
+	
 	
 	private Stage primaryStage;
 	private Scene welcome,stream,explorer,overview,dashboard,login,register;
@@ -106,7 +107,9 @@ public class Main extends Application {
 	public void switchToDashboard() {
 		double stageWidth = primaryStage.getWidth();
         double stageHeight = primaryStage.getHeight();
+        
 		primaryStage.setScene(dashboard);
+		
 		primaryStage.setWidth(stageWidth);
         primaryStage.setHeight(stageHeight);
 		

@@ -20,6 +20,7 @@ import javafx.scene.control.TableView;
 import javafx.scene.control.cell.PropertyValueFactory;
 
 public class IPTableUtil {
+	
 	public static void loadIPTable(TableView iptable , String filepath) {
 		
 		TableColumn<IpAddress, String> ipColumn = new TableColumn<>("IP Address");
