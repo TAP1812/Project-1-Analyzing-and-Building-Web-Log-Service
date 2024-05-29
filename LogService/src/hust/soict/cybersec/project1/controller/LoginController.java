@@ -51,6 +51,7 @@ public class LoginController {
 		String username = usernameField.getText();
 		String password = passwordField.getText();
 		if(username.equals("1") && password.equals("1")) {
+			
 			mainApp.switchToWelcome();
 		}
 		else {

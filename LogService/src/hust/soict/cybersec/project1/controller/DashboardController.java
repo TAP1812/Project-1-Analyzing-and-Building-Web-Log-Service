@@ -13,7 +13,11 @@ import javafx.scene.chart.LineChart;
 import javafx.scene.chart.PieChart;
 import javafx.scene.control.Alert;
 import javafx.scene.control.ButtonType;
+import javafx.scene.control.ContextMenu;
+import javafx.scene.control.MenuItem;
+import javafx.scene.control.TableRow;
 import javafx.scene.control.TableView;
+import javafx.scene.input.MouseButton;
 import javafx.scene.control.Alert.AlertType;
 
 public class DashboardController implements Initializable {
@@ -29,14 +33,46 @@ public class DashboardController implements Initializable {
 	@FXML
 	TableView<IpAddress> iptable = new TableView<IpAddress>();
 	
-
 	
+	public void iptableDetection() {
+		ContextMenu contextMenu = new ContextMenu();
+	    MenuItem detailsItem = new MenuItem("Detect this IP address");
+	    contextMenu.getItems().add(detailsItem);
+	    
+	    //set action for menu
+	    detailsItem.setOnAction(event -> {
+            IpAddress selectedIPAddress = iptable.getSelectionModel().getSelectedItem();
+            
+            if (selectedIPAddress != null) {
+            	
+            	//filter
+            	LogTableUtil.detectByIP(selectedIPAddress.getIp());
+
+            	//change view
+            	mainApp.switchToExplorer();
+
+            }
+        });
+	    iptable.setRowFactory(tv -> {
+            TableRow<IpAddress> row = new TableRow<>();
+            row.setOnMouseClicked(event -> {
+                if (event.getButton() == MouseButton.SECONDARY && !row.isEmpty()) {
+                    contextMenu.show(row, event.getScreenX(), event.getScreenY());
+                }
+            });
+            return row;
+        });
+
+	}
+	
+    
+    
 	
 	public void setMainApp(Main mainApp) {
         this.mainApp = mainApp;
     }
 	
-	
+
 	public void logout(ActionEvent event) {
 		Alert alert = new Alert(AlertType.CONFIRMATION);
 		alert.setTitle("Log out");
@@ -68,14 +104,16 @@ public class DashboardController implements Initializable {
 		// TODO Auto-generated method stub
 		
 		//load iptable
-		IPTableUtil.loadIPTable(iptable, "D:\\access.log");
+		IPTableUtil.loadIPTable(iptable, mainApp.getAccesslog());
 
 		//load linechart
 		LineChartUtil.createLineChart(this.linechart, mainApp.getAccesslog());
 		
 		//load piechart
-		PieChartUtil.createPieChart(piechart, "D:\\access.log" );
-			
+		PieChartUtil.createPieChart(piechart, mainApp.getAccesslog());
+		
+		
+		iptableDetection();
 		
 		
 		
