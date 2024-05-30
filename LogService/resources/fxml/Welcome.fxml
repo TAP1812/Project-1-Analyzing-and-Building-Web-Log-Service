@@ -16,7 +16,7 @@
          <top>
             <AnchorPane prefHeight="40.0" prefWidth="900.0" style="-fx-background-color: #3C5B6F;" BorderPane.alignment="CENTER">
                <children>
-                  <Button layoutX="776.0"  layoutY="5.0" onAction="#logout" mnemonicParsing="false" style="-fx-background-color: #3C5B6F;" text="Logout" textFill="#dfd0b8" AnchorPane.rightAnchor="20.0" AnchorPane.topAnchor="5.0">
+                  <Button layoutX="776.0" layoutY="5.0" mnemonicParsing="false" onAction="#logout" style="-fx-background-color: #3C5B6F;" text="Logout" textFill="#dfd0b8" AnchorPane.rightAnchor="20.0" AnchorPane.topAnchor="5.0">
                      <font>
                         <Font size="14.0" />
                      </font></Button>
@@ -37,22 +37,17 @@
                   </Label>
                   <VBox alignment="TOP_CENTER" layoutX="27.0" layoutY="46.0" prefHeight="200.0" prefWidth="100.0" spacing="20.0" AnchorPane.leftAnchor="0.0" AnchorPane.rightAnchor="0.0">
                      <children>
-                        <Button mnemonicParsing="false" onAction="#switchToOverview" prefHeight="35.0" prefWidth="110.0" style="-fx-background-color: #153448;" text="Overview" textFill="#dfd0b8">
-                           <font>
-                              <Font name="System Bold" size="14.0" />
-                           </font>
-                        </Button>
                         <Button mnemonicParsing="false" onAction="#switchToDashboard" prefHeight="35.0" prefWidth="110.0" style="-fx-background-color: #153448;" text="Dashboard" textFill="#dfd0b8">
                            <font>
                               <Font name="System Bold" size="14.0" />
                            </font>
                         </Button>
-                        <Button mnemonicParsing="false" onAction="#switchToStream" prefHeight="35.0" prefWidth="110.0" style="-fx-background-color: #153448;" text="Stream" textFill="#dfd0b8">
+                        <Button mnemonicParsing="false" onAction="#switchToExplorer" prefHeight="35.0" prefWidth="110.0" style="-fx-background-color: #153448;" text="Explorer" textFill="#dfd0b8">
                            <font>
                               <Font name="System Bold" size="14.0" />
                            </font>
                         </Button>
-                        <Button mnemonicParsing="false" onAction="#switchToExplorer" prefHeight="35.0" prefWidth="110.0" style="-fx-background-color: #153448;" text="Explorer" textFill="#dfd0b8">
+                        <Button mnemonicParsing="false" onAction="#switchToStream" prefHeight="35.0" prefWidth="110.0" style="-fx-background-color: #153448;" text="Stream" textFill="#dfd0b8">
                            <font>
                               <Font name="System Bold" size="14.0" />
                            </font>
@@ -72,7 +67,7 @@
                      <center>
                         <ImageView fitHeight="326.0" fitWidth="612.0" pickOnBounds="true" preserveRatio="true" BorderPane.alignment="CENTER">
                            <image>
-                              <Image url="@../img/log_analysis.png" />
+                              <Image url="@../image/log_analysis.png" />
                            </image>
                         </ImageView>
                      </center>

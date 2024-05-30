@@ -159,6 +159,7 @@ public class ExplorerController implements Initializable {
 		
 		
 		LogTableUtil.loadLogTable(logtable);
+		
 		LogTableUtil.loadAccessLogToTable(logtable,mainApp.getAccesslog());
 		
 		

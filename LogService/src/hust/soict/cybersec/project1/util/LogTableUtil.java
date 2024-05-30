@@ -78,6 +78,7 @@ public class LogTableUtil {
 	
 	public static void loadLogTable(TableView<AccessLog> logtable) {
 		
+		
 		TableColumn<AccessLog, String> typeColumn = new TableColumn<>("Type");
 		TableColumn<AccessLog, String> IpColumn = new TableColumn<>("IP");
 		TableColumn<AccessLog, String> remoteIdentColumn = new TableColumn<>("User Ident");
@@ -91,17 +92,17 @@ public class LogTableUtil {
 		TableColumn<AccessLog, String> logColumn = new TableColumn<>("Log");
 		
 		
-		typeColumn.setCellValueFactory(new PropertyValueFactory<>("type"));
-		IpColumn.setCellValueFactory(new PropertyValueFactory<>("IP"));
-		remoteIdentColumn.setCellValueFactory(new PropertyValueFactory<>("remoteIdent"));
-		remoteUserColumn.setCellValueFactory(new PropertyValueFactory<>("remoteUser"));
-		timeColumn.setCellValueFactory(new PropertyValueFactory<>("timestamp"));
-		userColumn.setCellValueFactory(new PropertyValueFactory<>("userAgent"));
-		requestColumn.setCellValueFactory(new PropertyValueFactory<>("requestUrl"));
-		statusColumn.setCellValueFactory(new PropertyValueFactory<>("statusCode"));
-		bytesSentColumn.setCellValueFactory(new PropertyValueFactory<>("bytesSent"));
-		refererColumn.setCellValueFactory(new PropertyValueFactory<>("referer"));
-		logColumn.setCellValueFactory(new PropertyValueFactory<>("logEntry"));
+		typeColumn.setCellValueFactory(cellData -> cellData.getValue().getTypeProperty());
+		IpColumn.setCellValueFactory(cellData -> cellData.getValue().getIPProperty());
+		remoteIdentColumn.setCellValueFactory(cellData -> cellData.getValue().getRemoteIdentProperty());
+		remoteUserColumn.setCellValueFactory(cellData -> cellData.getValue().getRemoteUserProperty());
+		timeColumn.setCellValueFactory(cellData -> cellData.getValue().getTimestampProperty());
+		userColumn.setCellValueFactory(cellData -> cellData.getValue().getUserAgentProperty());
+		requestColumn.setCellValueFactory(cellData -> cellData.getValue().getRequestUrlProperty());
+		statusColumn.setCellValueFactory(cellData -> cellData.getValue().getStatusCodeProperty().asObject());
+		bytesSentColumn.setCellValueFactory(cellData -> cellData.getValue().getBytesSentProperty().asObject());
+		refererColumn.setCellValueFactory(cellData -> cellData.getValue().getRefererProperty());
+		logColumn.setCellValueFactory(cellData -> cellData.getValue().getLogEntryProperty());
 
 		// Format each column
 		IpColumn.setMinWidth(10);

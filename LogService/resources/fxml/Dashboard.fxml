@@ -96,20 +96,31 @@
                                     <Insets />
                                  </GridPane.margin>
                               </LineChart>
-                              <TableView fx:id="iptable" GridPane.rowIndex="1" GridPane.rowSpan="2" />
+                              <TableView fx:id="iptable" GridPane.rowIndex="1" GridPane.rowSpan="2">
+                                 <columnResizePolicy>
+                                    <TableView fx:constant="CONSTRAINED_RESIZE_POLICY" />
+                                 </columnResizePolicy></TableView>
                               <PieChart fx:id="piechart" prefHeight="278.0" prefWidth="426.0" title="piechart" GridPane.columnIndex="2" GridPane.columnSpan="3" />
-                              <TableView fx:id="statustable" prefHeight="149.0" prefWidth="309.0" GridPane.columnIndex="3" GridPane.columnSpan="2" GridPane.rowIndex="2" />
+                              <TableView fx:id="statustable" prefHeight="149.0" prefWidth="309.0" GridPane.columnIndex="3" GridPane.columnSpan="2" GridPane.rowIndex="2">
+                                 <columnResizePolicy>
+                                    <TableView fx:constant="CONSTRAINED_RESIZE_POLICY" />
+                                 </columnResizePolicy></TableView>
                               <AnchorPane prefHeight="200.0" prefWidth="200.0" style="-fx-border-color: #000000;" GridPane.columnIndex="3" GridPane.rowIndex="1">
                                  <children>
                                     <Label layoutX="10.0" layoutY="4.0" text="#visit" />
+                                    <Label layoutX="42.0" layoutY="24.0" prefHeight="18.0" prefWidth="46.0" text="10.252" />
                                  </children>
                               </AnchorPane>
                               <AnchorPane prefHeight="200.0" prefWidth="200.0" style="-fx-border-color: #000000;" GridPane.columnIndex="4" GridPane.rowIndex="1">
                                  <children>
                                     <Label layoutX="2.0" layoutY="6.0" text="#Unique visitor" />
+                                    <Label layoutX="64.0" layoutY="24.0" text="852" />
                                  </children>
                               </AnchorPane>
-                              <TableView fx:id="ruletable" prefHeight="200.0" prefWidth="200.0" GridPane.columnIndex="1" GridPane.columnSpan="2" GridPane.rowIndex="1" GridPane.rowSpan="2" />
+                              <TableView fx:id="ruletable" prefHeight="200.0" prefWidth="200.0" GridPane.columnIndex="1" GridPane.columnSpan="2" GridPane.rowIndex="1" GridPane.rowSpan="2">
+                                 <columnResizePolicy>
+                                    <TableView fx:constant="CONSTRAINED_RESIZE_POLICY" />
+                                 </columnResizePolicy></TableView>
                            </children>
                            <padding>
                               <Insets bottom="5.0" left="5.0" right="5.0" top="5.0" />
