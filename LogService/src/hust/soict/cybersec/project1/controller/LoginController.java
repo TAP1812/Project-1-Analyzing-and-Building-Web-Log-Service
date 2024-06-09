@@ -23,8 +23,7 @@ public class LoginController {
 	@FXML
 	TextField usernameField;
 	
-	@FXML
-	PasswordField passwordField;
+	
 	
 	
 	private Stage stage;
@@ -49,9 +48,9 @@ public class LoginController {
 	public void login(ActionEvent event) throws IOException {
 		
 		String username = usernameField.getText();
-		String password = passwordField.getText();
-		if(username.equals("1") && password.equals("1")) {
-			
+		
+		if(username.equals("1") ) {
+		
 			mainApp.switchToWelcome();
 		}
 		else {
@@ -61,7 +60,6 @@ public class LoginController {
 			alert.setContentText("Username or password is incorrect");
 			alert.showAndWait();
 			usernameField.setText("");
-			passwordField.setText("");
 		}
 	}
 }

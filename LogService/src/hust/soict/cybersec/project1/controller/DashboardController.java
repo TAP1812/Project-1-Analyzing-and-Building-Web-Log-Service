@@ -5,7 +5,7 @@ import java.util.ResourceBundle;
 
 import hust.soict.cybersec.project1.Main;
 import hust.soict.cybersec.project1.model.IpAddress;
-import hust.soict.cybersec.project1.model.StatusCount;
+//import hust.soict.cybersec.project1.model.StatusCount;
 import hust.soict.cybersec.project1.util.*;
 import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
@@ -34,8 +34,8 @@ public class DashboardController implements Initializable {
 	@FXML
 	TableView<IpAddress> iptable = new TableView<IpAddress>();
 	
-	@FXML 
-	TableView<StatusCount> statustable;
+//	@FXML 
+//	TableView<StatusCount> statustable;
 	
 	
 	public void iptableDetection() {
@@ -78,7 +78,7 @@ public class DashboardController implements Initializable {
 	
 
 	public void logout(ActionEvent event) {
-		StatusTable.loadStatusTable(statustable);
+//		StatusTable.loadStatusTable(statustable);
 		Alert alert = new Alert(AlertType.CONFIRMATION);
 		alert.setTitle("Log out");
 		alert.setHeaderText("You're about log out");
